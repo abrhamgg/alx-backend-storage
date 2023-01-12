@@ -1,19 +1,13 @@
--- script that creates a function SafeDiv that divides (and returns) the first by the second number
--- returns 0 if the second number is equal to 0.
-
-DROP FUNCTION IF EXISTS SafeDiv;
+-- a SQL script that creates a function SafeDiv that divides (and returns)
+-- the first by the second number or returns 0 if the second number is equal to 0.
 DELIMITER $$
-CREATE FUNCTION IF NOT EXISTS SafeDiv(a INT, b INT)
-RETURNS DOUBLE DETERMINISTIC
+CREATE FUNCTION SafeDiv (a INT, b int)
+RETURNS float
 BEGIN
-        DECLARE result FLOAT DEFAULT 0;
-
-        IF b = 0
-        THEN
-                RETURN result;
-        END IF;
-        SET result = a / b;
-        RETURN result;
+    IF b = 0
+    THEN
+        RETURN 0;
+    END IF;
+    RETURN a / b;
 END
 $$
-DELIMITER ;
