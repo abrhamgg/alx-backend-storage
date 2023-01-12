@@ -19,7 +19,6 @@ BEGIN
         INSERT INTO projects(name)
             VALUES(project_name);
     END IF;
-    SELECT 777;
     SELECT id
         INTO project_id
         FROM projects
