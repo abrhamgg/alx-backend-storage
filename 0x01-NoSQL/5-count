@@ -1,0 +1,2 @@
+// scripts that display the number if documents in the collection school
+db.school.count()
