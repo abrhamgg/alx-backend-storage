@@ -21,7 +21,7 @@ if __name__ == "__main__":
         {"method": "DELETE"})))
     print("{} status check".format(nginx.count_documents(
         {"method": "GET"} and {"path": "/status"})))
-    print("IPS:")
+    print("IPs:")
     doc = db.nginx.aggregate([
         {"$group": {"_id": "$ip", "num": {"$sum": 1}}},
         {"$sort": {"num": -1}},
